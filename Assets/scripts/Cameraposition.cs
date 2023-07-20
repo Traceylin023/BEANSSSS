@@ -8,6 +8,7 @@ public class Cameraposition : MonoBehaviour
 
     void Update()
     {
+        // copies position of empty gameobject for camera
         transform.position = cameraPosition.position;
     }
 }
