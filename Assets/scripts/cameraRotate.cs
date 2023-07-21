@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camerarotation : MonoBehaviour
+public class CameraRotate : MonoBehaviour
 {
     public float Xaxis = 1600f;
     public float Yaxis = 1600f;
