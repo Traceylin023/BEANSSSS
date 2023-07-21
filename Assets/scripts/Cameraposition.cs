@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cameraposition : MonoBehaviour
+public class CameraPosition : MonoBehaviour
 {
     public Transform cameraPosition;
 
