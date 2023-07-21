@@ -112,6 +112,6 @@ public class AI : MonoBehaviour
 
     private bool IsValidPosition(Vector2Int position)
     {
-        return position.x >= 0 && position.x < grid.GetL && position.y >= 0 && position.y < gridSizeY;
+        return position.x >= 0 && position.x < grid.GetLength(0) && position.y >= 0 && position.y < grid.GetLength(1);
     }
 }
