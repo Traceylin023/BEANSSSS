@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Camerarotation : MonoBehaviour
 {
-    public float Xaxis = 400f;
-    public float Yaxis = 400f;
+    public float Xaxis = 1600f;
+    public float Yaxis = 1600f;
 
     public Transform orientation;
 
