@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraPosition : MonoBehaviour
+public class Cameraposition : MonoBehaviour
 {
-    public Transform cameraPosition;
+    public Transform Placeholder;
 
     void Update()
     {
         // copies position of empty gameobject for camera
-        transform.position = cameraPosition.position;
+        transform.position = Placeholder.position;
     }
 }

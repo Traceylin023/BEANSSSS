@@ -298,8 +298,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c2ec1db81ca7b499c7196ca426c34d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Xaxis: 400
-  Yaxis: 400
+  Xaxis: 1600
+  Yaxis: 1600
   orientation: {fileID: 941999380}
   xrotation: 0
   yrotation: 0
@@ -646,7 +646,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941999376}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 587.4, y: 61.8, z: 157}
+  m_LocalPosition: {x: 612.6, y: 61.8, z: 175}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1057,7 +1057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec1928e27a6b8f34c819e58c7c65e4d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraPosition: {fileID: 1467778290}
+  Placeholder: {fileID: 963903767}
 --- !u!4 &1340416828
 Transform:
   m_ObjectHideFlags: 0
@@ -1066,7 +1066,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1340416826}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.12, z: 0}
+  m_LocalPosition: {x: 451, y: 154.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
