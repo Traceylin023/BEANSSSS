@@ -30,65 +30,64 @@ public class AI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Get the updated path
         path = updatePath();
-        Debug.Log("x: "+path[0].x);
-        Debug.Log("y: "+path[0].y);
-        monster.transform.Translate(path[0].x, 0, path[0].y);
-        path.RemoveAt(0);
+
+        // If there are steps in the path, move the monster to the next step
+        if (path.Count > 0)
+        {
+            Vector2 nextStep = path[0];
+            monster.transform.Translate(nextStep.x, 0, nextStep.y);
+            path.RemoveAt(0);
+        }
     }
 
     private List<Vector2> updatePath()
     {
         List<Vector2> path = new List<Vector2>();
 
-        while(player.transform.position.x != monster.transform.position.x && player.transform.position.z != monster.transform.position.z){
-            Vector2 x;
-            Vector2 a = new Vector2(0f,1f);
-            Vector2 b = new Vector2(1f,1f);
-            Vector2 c = new Vector2(1f,0f);
-            Vector2 d = new Vector2(0f,-1f);
-            Vector2 e = new Vector2(-1f,-1f);
-            Vector2 f = new Vector2(-1f,0f);
-            Vector2 g = new Vector2(1f,-1f);
-            Vector2 h = new Vector2(-1f,1f);
-            float distance = Vector3.Distance(monster.transform.position, player.transform.position);
-            if(IsValidPosition(a) && closer(a, d)){
-                x=a;
+        Vector2[] directions = new Vector2[]
+        {
+            new Vector2(0f, 1f),  // Up
+            new Vector2(1f, 1f),  // Up-Right
+            new Vector2(1f, 0f),  // Right
+            new Vector2(1f, -1f), // Down-Right
+            new Vector2(0f, -1f), // Down
+            new Vector2(-1f, -1f),// Down-Left
+            new Vector2(-1f, 0f), // Left
+            new Vector2(-1f, 1f)  // Up-Left
+        };
+
+        foreach (Vector2 direction in directions)
+        {
+            Vector3 newPosition = new Vector3(monster.transform.position.x + direction.x, monster.transform.position.y, monster.transform.position.z + direction.y);
+
+            // Check if the new position is valid (i.e., not a wall and not outside the grid boundaries)
+            if (IsValidPosition(newPosition))
+            {
+                float distance = Vector3.Distance(newPosition, player.transform.position);
+                // If the new position is closer to the player, add it to the path
+                if (closer(newPosition, distance))
+                {
+                    path.Add(direction);
+                }
             }
-            if(IsValidPosition(b) && closer(b, d)){
-                x=b;
-            }
-            if(IsValidPosition(c) && closer(c, d)){
-                x=c;
-            }
-            if(IsValidPosition(d) && closer(d, d)){
-                x=d;
-            }
-            if(IsValidPosition(e) && closer(e, d)){
-                x=e;
-            }
-            if(IsValidPosition(f) && closer(f, d)){
-                x=f;
-            }
-            if(IsValidPosition(g) && closer(g, d)){
-                x=g;
-            }
-            if(IsValidPosition(h) && closer(h, d)){
-                x=h;
-            }
-            path.Add(x);
         }
 
         return path;
     }
 
-    private bool IsValidPosition(Vector2 v)
+    private bool IsValidPosition(Vector3 position)
     {
-        return grid[monster.transform.position.x+v.X, monster.transform.position.z+v.Y] == 0;
+        int x = Mathf.RoundToInt(position.x);
+        int z = Mathf.RoundToInt(position.z);
+        if (x < 0 || x >= grid.GetLength(0) || z < 0 || z >= grid.GetLength(1))
+            return false;
+        return grid[x, z] == 0;
     }
 
-    private bool closer(Vector2 v, float d)
+    private bool closer(Vector3 position, float distance)
     {
-        return Vector3.Distance(new Vector3(monster.transform.position.x+v.X, monster.transform.position.y, monster.transform.position.z+v.Y), player.transform.position) < d;
+        return Vector3.Distance(position, player.transform.position) < distance;
     }
 }
