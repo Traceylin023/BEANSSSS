@@ -18,6 +18,8 @@ public class AI : MonoBehaviour
         //1 == wall
         //2 == path
         Debug.ClearDeveloperConsole();
+
+        
         for(int i=0;i<grid.GetLength(0);i++){
             for(int j=0;j<grid.GetLength(1);j++){
                 grid[i, j]=0;
@@ -40,14 +42,40 @@ public class AI : MonoBehaviour
         List<Vector2> path = new List<Vector2>();
 
         while(player.transform.position.x != monster.transform.position.x && player.transform.position.z != monster.transform.position.z){
-            Vector2 x = new Vector2(0f,0f);
-            if(player.transform.position.x > monster.transform.position.x){
-                x.X++;
+            Vector2 x;
+            Vector2 a = new Vector2(0f,1f);
+            Vector2 b = new Vector2(1f,1f);
+            Vector2 c = new Vector2(1f,0f);
+            Vector2 d = new Vector2(0f,-1f);
+            Vector2 e = new Vector2(-1f,-1f);
+            Vector2 f = new Vector2(-1f,0f);
+            Vector2 g = new Vector2(1f,-1f);
+            Vector2 h = new Vector2(-1f,1f);
+            float distance = Vector3.Distance(monster.transform.position, player.transform.position);
+            if(IsValidPosition(a) && closer(a, d)){
+                x=a;
             }
-            if(player.transform.position.z > monster.transform.position.z){
-                x.Y++;
+            if(IsValidPosition(b) && closer(b, d)){
+                x=b;
             }
-            if(
+            if(IsValidPosition(c) && closer(c, d)){
+                x=c;
+            }
+            if(IsValidPosition(d) && closer(d, d)){
+                x=d;
+            }
+            if(IsValidPosition(e) && closer(e, d)){
+                x=e;
+            }
+            if(IsValidPosition(f) && closer(f, d)){
+                x=f;
+            }
+            if(IsValidPosition(g) && closer(g, d)){
+                x=g;
+            }
+            if(IsValidPosition(h) && closer(h, d)){
+                x=h;
+            }
             path.Add(x);
         }
 
@@ -56,6 +84,11 @@ public class AI : MonoBehaviour
 
     private bool IsValidPosition(Vector2 v)
     {
-        return monster.transform.position.x+v.X > grid. && b >= 0 && b < grid.GetLength(1);
+        return grid[monster.transform.position.x+v.X, monster.transform.position.z+v.Y] == 0;
+    }
+
+    private bool closer(Vector2 v, float d)
+    {
+        return Vector3.Distance(new Vector3(monster.transform.position.x+v.X, monster.transform.position.y, monster.transform.position.z+v.Y), player.transform.position) < d;
     }
 }
