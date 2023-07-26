@@ -17,7 +17,7 @@ public class PlayerDetection : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame 
+    // Update is called once per frame
     void Update()
     {
         // Check if the player is within the detection radius

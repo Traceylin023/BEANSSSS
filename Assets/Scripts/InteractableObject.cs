@@ -52,7 +52,7 @@ public class InteractableObject : MonoBehaviour
             transform.SetParent(originalParent);
 
             // Hide the note on the screen
-            //playerController.HideNoteContent();
+            playerController.HideNoteContent();
         }
     }
 }
