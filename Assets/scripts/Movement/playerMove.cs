@@ -11,19 +11,19 @@ public class playerMove : MonoBehaviour
     {
         float dt = Time.deltaTime;
         
-        if(Input.GetKey(KeyCode.A))
+        if(Input.GetKey(KeyCode.W))
         {
             player.transform.Translate(-speed*dt, 0,0);
         }
-        if(Input.GetKey(KeyCode.D))
+        if(Input.GetKey(KeyCode.S))
         {
             player.transform.Translate(speed*dt, 0,0);
         }
-        if(Input.GetKey(KeyCode.W))
+        if(Input.GetKey(KeyCode.A))
         {
             player.transform.Translate(0, 0, speed*dt);
         }
-        if(Input.GetKey(KeyCode.S))
+        if(Input.GetKey(KeyCode.D))
         {
             player.transform.Translate(0, 0, -speed*dt);
         }
