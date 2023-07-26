@@ -8,28 +8,21 @@ public class AI : MonoBehaviour
     public GameObject player;
     public GameObject monster;
 
-    public bool[,] grid = new bool[20,20];
-    public List<Vector2Int> path; //= new List<Vector2Int>();
+    public bool[,] grid;
+    public List<Vector2Int> path = new List<Vector2Int>();
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.ClearDeveloperConsole();
-        for(int i=0;i<grid.GetLength(0);i++){
-            for(int j=0;j<grid.GetLength(1);j++){
-                grid[i, j]=true;
-            }
-        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        //path = updatePath();
-        Debug.Log("x: "+path[0].x);
-        Debug.Log("y: "+path[0].y);
-        monster.transform.Translate(path[0].x, 0, path[0].y);
-        //path.RemoveAt(0);
+        path = updatePath();
+        monster.transform.position = new Vector3(path[0].x, 0, path[0].y);
+        path.RemoveAt(0);
 
     }
 
@@ -67,7 +60,7 @@ public class AI : MonoBehaviour
 
     private List<Vector2Int> updatePath()
     {
-        /*
+
         Vector2Int start = new Vector2Int((int)monster.transform.position.x, (int)monster.transform.position.z);
         Vector2Int end = new Vector2Int((int)player.transform.position.x, (int)player.transform.position.z);
 
@@ -113,7 +106,7 @@ public class AI : MonoBehaviour
                 }
             }
         }
-        */
+
         return path;
     }
 

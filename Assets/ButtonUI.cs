@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ButtonStartUI : MonoBehaviour
+public class ButtonUI : MonoBehaviour
 {
     [SerializeField] private string newGameLevel = "Malcolm - HauntedHouse1";
 
