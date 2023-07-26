@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Cameraposition : MonoBehaviour
 {
-    public Transform Placeholder;
+    public GameObject player;
+    public GameObject camera;
 
     void Update()
     {
         // copies position of empty gameobject for camera
-        transform.position = Placeholder.position;
+        camera.transform.position = player.transform.position;
     }
 }
