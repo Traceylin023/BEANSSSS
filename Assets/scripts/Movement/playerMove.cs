@@ -4,70 +4,58 @@ using UnityEngine;
 
 public class playerMove : MonoBehaviour
 {
-    public GameObject player;
-    public float speed = 16f;
+    [Header ("Movement")]
+    public float moveSpeed;
 
-    void Update()
+    public float groundDrag;
+
+    [Header("Ground Check")]
+    public float playerHeight;
+    public LayerMask whatisground;
+    bool grounded;
+
+    public Transform orientation;
+
+    float horizontalInput;
+    float verticalInput;
+
+    Vector3 moveDirection;
+
+    Rigidbody rb;
+
+    void Start()
     {
-        float dt = Time.deltaTime;
+        rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
+    }
 
-        Debug.Log("PLAYER: "+(player.transform.position.x)+"  "+player.transform.position.z);
-        
-        if(Input.GetKey(KeyCode.A))
-        {
-            player.transform.Translate(-speed*dt, 0,0);
-            player.transform.position = new Vector3(Mathf.Clamp(player.transform.position.x, -50, 50), 1, Mathf.Clamp(player.transform.position.z, -50, 50));
+    private void Update()
+    {
+       grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 2f, whatisground);
+     
+       MyInput();
+       
+       if (grounded)
+           rb.drag = groundDrag;
+       else 
+           rb.drag = 0;
+    }
 
-            // if(player.transform.position.x-speed*dt > -50 && player.transform.position.x-speed*dt < 50)
-            // {
-            //     Debug.Log("KEY A");
-            //     Debug.Log("positionX: "+(player.transform.position.x-speed*dt));
-            //     Debug.Log("speed*dt: "+(player.transform.position.x)+"   "+(speed*dt));
-            //     player.transform.Translate(-speed*dt, 0,0);
-            //     Debug.Log("PLAYER AFTER: "+(player.transform.position.x)+"  "+player.transform.position.z);
-            // }
-        }
-        if(Input.GetKey(KeyCode.D))
-        {
-            player.transform.Translate(speed*dt, 0,0);
-            player.transform.position = new Vector3(Mathf.Clamp(player.transform.position.x, -50, 50), 1, Mathf.Clamp(player.transform.position.z, -50, 50));
+    private void FixedUpdate()
+    {
+        MovePlayer();
+    }
 
-            // if(player.transform.position.x+speed*dt > -50 && player.transform.position.x+speed*dt < 50)
-            // {
-            //     Debug.Log("KEY D");
-            //     Debug.Log("positionX: "+(player.transform.position.x+speed*dt));
-            //     Debug.Log("speed*dt: "+(player.transform.position.x)+"   "+(speed*dt)+"  "+(player.transform.position.x+speed*dt));
-            //     player.transform.Translate(speed*dt, 0,0);
-            //     Debug.Log("PLAYER AFTER: "+(player.transform.position.x)+"  "+player.transform.position.z);
-            // }
-        }
-        if(Input.GetKey(KeyCode.W))
-        {
-            player.transform.Translate(0, 0, speed*dt);
-            player.transform.position = new Vector3(Mathf.Clamp(player.transform.position.x, -50, 50), 1, Mathf.Clamp(player.transform.position.z, -50, 50));
+    private void MyInput()
+    {
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
+    }
 
-            // if(player.transform.position.z+speed*dt > -50 && player.transform.position.z+speed*dt < 50)
-            // {
-            //     Debug.Log("KEY W");
-            //     Debug.Log("positionY: "+(player.transform.position.z+speed*dt));
-            //     Debug.Log("speed*dt: "+(player.transform.position.z)+"   "+(speed*dt));
-            //     player.transform.Translate(0, 0,speed*dt);
-            //     Debug.Log("PLAYER AFTER: "+(player.transform.position.x)+"  "+player.transform.position.z);
-            // }
-        }
-        if(Input.GetKey(KeyCode.S))
-        {
-            player.transform.Translate(0, 0, -speed*dt);
-            player.transform.position = new Vector3(Mathf.Clamp(player.transform.position.x, -50, 50), 1, Mathf.Clamp(player.transform.position.z, -50, 50));
+    private void MovePlayer()
+    {
+        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-            // if(player.transform.position.z-speed*dt > -50 && player.transform.position.z-speed*dt < 50)
-            // {
-            //     Debug.Log("KEY S");
-            //     Debug.Log("positionY: "+(player.transform.position.z-speed*dt));
-            //     Debug.Log("speed*dt: "+(player.transform.position.x)+"   "+(speed*dt));
-            //     player.transform.Translate(-speed*dt, 0,0);
-            //     Debug.Log("PLAYER AFTER: "+(player.transform.position.x)+"  "+player.transform.position.z);
-            // }
-        }
+        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
     }
 }
