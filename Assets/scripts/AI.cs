@@ -74,6 +74,9 @@ public class AI : MonoBehaviour
                 Debug.Log("found position");
                 float distance = Vector3.Distance(newPosition, player.transform.position);
                 // If the new position is closer to the player, add it to the path
+                Debug.Log("monster: "+monster.transform.position.x+"  "+monster.transform.position.z);
+                Debug.Log("player: "+player.transform.position.x+"  "+player.transform.position.z);
+                Debug.Log("newPosition: "+newPosition.x+"  "+newPosition.z);
                 if (closer(newPosition, distance))
                 {
                     Debug.Log("add position");
