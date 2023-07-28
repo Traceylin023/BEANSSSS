@@ -1,3 +1,4 @@
+/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,13 +7,15 @@ public class IconSpriteScreenShot : MonoBehaviour
 {
 
     public Camera camera;
+    public List<GameObject> sceneObjects;
+    public List<InventoryItemData> dataObjects;
 
     void TakeScreenshot(string fullPath)
     {
-        //if (GetComponent<Camera>() == null)
-        //{
-        //    camera = GetComponent<Camera>();
-        //}
+        if (GetComponent<Camera>() == null)
+        {
+            camera = GetComponent<Camera>();
+        }
 
         RenderTexture rt = new RenderTexture(256, 256, 24);
         GetComponent<Camera>().targetTexture = rt;
@@ -39,3 +42,4 @@ public class IconSpriteScreenShot : MonoBehaviour
 //#endif
     }    
 }
+*/
