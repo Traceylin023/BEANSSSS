@@ -6,6 +6,10 @@ namespace KeySystem
 {
     public class KeyRaycast : MonoBehaviour
     {
-        public bool hasRedKey = false;
-    }
+        [SerializerField] private int rayLength = 5;
+        [SerializerField] private LayerMask layerMaskInteract;
+        [SerializerField] private string excluseLayerName = null;
+        // private KeyItemController raycatedObject;
+
+     }
 }
