@@ -32,19 +32,17 @@ public class AI : MonoBehaviour
     void Update()
     {
 
-        Debug.Log("VERTICES: "+plane.GetComponent<MeshFilter>().sharedMesh.vertices);
         // Get the updated path
         path = updatePath();
 
-        Debug.Log(path.Count);
-        Debug.Log(monster.transform.position == player.transform.position);
+        Debug.Log("path size: "+path.Count);
+        Debug.Log("is it there: "+monster.transform.position == player.transform.position);
         // If there are steps in the path, move the monster to the next step
         if (path.Count > 0)
         {
-            Debug.Log("testing");
             Vector2 nextStep = path[0];
-            Debug.Log("x: "+nextStep.x);
-            Debug.Log("y: "+nextStep.y);
+            Debug.Log("next step x: "+nextStep.x);
+            Debug.Log("next step y: "+nextStep.y);
             monster.transform.Translate(nextStep.x, 0, nextStep.y);
             path.RemoveAt(0);
         }
