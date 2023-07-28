@@ -4,28 +4,60 @@ using UnityEngine;
 
 public class playerMove : MonoBehaviour
 {
-    public GameObject player;
-    public float speed = 16f;
+    [Header ("Movement")]
+    public float moveSpeed;
 
-    void Update()
+    public float groundDrag;
+
+    [Header("Ground Check")]
+    public float playerHeight;
+    public LayerMask whatisground;
+    bool grounded;
+
+    public Transform orientation;
+
+    float horizontalInput;
+    float verticalInput;
+
+    Vector3 moveDirection;
+
+    Rigidbody rb;
+
+    void Start()
     {
-        float dt = Time.deltaTime;
-        
-        if(Input.GetKey(KeyCode.A))
-        {
-            player.transform.Translate(-speed*dt, 0,0);
-        }
-        if(Input.GetKey(KeyCode.D))
-        {
-            player.transform.Translate(speed*dt, 0,0);
-        }
-        if(Input.GetKey(KeyCode.W))
-        {
-            player.transform.Translate(0, 0, speed*dt);
-        }
-        if(Input.GetKey(KeyCode.S))
-        {
-            player.transform.Translate(0, 0, -speed*dt);
-        }
+        rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
+    }
+
+    private void Update()
+    {
+       grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 2f, whatisground);
+     
+       MyInput();
+       
+       if (grounded)
+           rb.drag = groundDrag;
+       else 
+           rb.drag = 0;
+    }
+
+    private void FixedUpdate()
+    {
+        MovePlayer();
+    }
+
+    private void MyInput()
+    {
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
+    }
+
+    private void MovePlayer()
+    {
+        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+
+        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+
+        orientation.position = new Vector3(Mathf.Clamp(orientation.position.x, -50, 50), 1, Mathf.Clamp(orientation.position.z, -50, 50));
     }
 }
