@@ -873,6 +873,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2146514990}
   monster: {fileID: 941999376}
+  plane: {fileID: 1004555202}
   path: []
 --- !u!65 &2146514992
 BoxCollider:
