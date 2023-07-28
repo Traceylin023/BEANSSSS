@@ -7,9 +7,9 @@ public class AI : MonoBehaviour
 
     public GameObject player;
     public GameObject monster;
-    public GameObject plane;
+    public static float adjust = 5f;
 
-    public int[,] grid = new int[100,100];
+    public int[,] grid = new int[(int)(1000),(int)(1000)];
     public List<Vector2> path = new List<Vector2>();
 
     // Start is called before the first frame update
@@ -20,18 +20,24 @@ public class AI : MonoBehaviour
         //2 == path
         Debug.ClearDeveloperConsole();
 
+        //Debug.Log(grid.GetLength(0)+"   "+grid.GetLength(1));
+
         
         for(int i=0;i<grid.GetLength(0);i++){
             for(int j=0;j<grid.GetLength(1);j++){
                 grid[i, j]=0;
             }
         }
+
+        player.transform.position = new Vector3(20,1,0);
+        monster.transform.position = new Vector3(0,2,0);
     }
 
     // Update is called once per frame
     void Update()
     {
 
+        float dt = Time.deltaTime;
         // Get the updated path
         path = updatePath();
 
@@ -43,7 +49,7 @@ public class AI : MonoBehaviour
             Vector2 nextStep = path[0];
             Debug.Log("next step x: "+nextStep.x);
             Debug.Log("next step y: "+nextStep.y);
-            monster.transform.Translate(nextStep.x, 0, nextStep.y);
+            monster.transform.Translate(nextStep.x*dt, 0, nextStep.y*dt);
             path.RemoveAt(0);
         }
     }
@@ -52,7 +58,6 @@ public class AI : MonoBehaviour
     {
         List<Vector2> path = new List<Vector2>();
 
-        float adjust = 0.5f;
         Vector2[] directions = new Vector2[]
         {
             new Vector2(0f, adjust),  // Up
@@ -65,43 +70,45 @@ public class AI : MonoBehaviour
             new Vector2(-adjust, adjust)  // Up-Left
         };
 
+        Vector2 nextDirection = directions[0];
+
         foreach (Vector2 direction in directions)
         {
-            Vector3 newPosition = new Vector3(monster.transform.position.x + direction.x, monster.transform.position.y, monster.transform.position.z + direction.y);
 
             // Check if the new position is valid (i.e., not a wall and not outside the grid boundaries)
             Debug.Log("position: "+direction.x+" "+direction.y);
-            if (IsValidPosition(newPosition))
+            Debug.Log("monster: "+monster.transform.position.x+"  "+monster.transform.position.z);
+            Debug.Log("player: "+player.transform.position.x+"  "+player.transform.position.z);
+            if (IsValidPosition(direction))
             {
                 Debug.Log("valid");
                 // If the new position is closer to the player, add it to the path
-                Debug.Log("monster: "+monster.transform.position.x+"  "+monster.transform.position.z);
-                Debug.Log("player: "+player.transform.position.x+"  "+player.transform.position.z);
-                Debug.Log("newPosition: "+newPosition.x+"  "+newPosition.z);
-                if (closer(newPosition))
+                if (closer(direction, nextDirection))
                 {
-                    Debug.Log("add position");
-                    path.Add(direction);
+                    Debug.Log("change nextDirection");
+                    nextDirection=direction;
                 }
             }
         }
 
+        Debug.Log("next direction is: "+nextDirection.x+"  "+nextDirection.y);
+        path.Add(nextDirection);
+
         return path;
     }
 
-    private bool IsValidPosition(Vector3 position)
+    private bool IsValidPosition(Vector2 direction)
     {
-        int x = Mathf.RoundToInt(monster.transform.position.x+position.x);
-        int z = Mathf.RoundToInt(monster.transform.position.z+position.z);
-        if(x > -50 && x < 50 && z > -50 && z < 50){
-            Debug.Log(x+"  "+z);
-            return grid[x+50, z+50] == 0;
+        int x = Mathf.RoundToInt(10*(monster.transform.position.x+direction.x));
+        int z = Mathf.RoundToInt(10*(monster.transform.position.z+direction.y));
+        if(x > -500 && x < 500 && z > -500 && z < 500){
+            return grid[x+500, z+500] == 0;
         } 
         return false;
     }
 
-    private bool closer(Vector3 position)
+    private bool closer(Vector2 position1, Vector2 position2)
     {
-        return Vector3.Distance(position, player.transform.position) < Vector3.Distance(monster.transform.position, player.transform.position);
+        return Vector3.Distance(new Vector3(monster.transform.position.x + position1.x, monster.transform.position.y, monster.transform.position.z + position1.y), player.transform.position) < Vector3.Distance(new Vector3(monster.transform.position.x + position2.x, monster.transform.position.y, monster.transform.position.z + position2.y), player.transform.position);
     }
 }
