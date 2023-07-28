@@ -33,10 +33,15 @@ public class AI : MonoBehaviour
         // Get the updated path
         path = updatePath();
 
+        Debug.Log(path.Count);
+        Debug.Log(monster.transform.position == player.transform.position);
         // If there are steps in the path, move the monster to the next step
         if (path.Count > 0)
         {
+            Debug.Log("testing");
             Vector2 nextStep = path[0];
+            Debug.Log("x: "+nextStep.x);
+            Debug.Log("y: "+nextStep.y);
             monster.transform.Translate(nextStep.x, 0, nextStep.y);
             path.RemoveAt(0);
         }
@@ -46,6 +51,7 @@ public class AI : MonoBehaviour
     {
         List<Vector2> path = new List<Vector2>();
 
+        float adjust = 0.1f;
         Vector2[] directions = new Vector2[]
         {
             new Vector2(0f, 1f),  // Up
@@ -65,10 +71,15 @@ public class AI : MonoBehaviour
             // Check if the new position is valid (i.e., not a wall and not outside the grid boundaries)
             if (IsValidPosition(newPosition))
             {
+                Debug.Log("found position");
                 float distance = Vector3.Distance(newPosition, player.transform.position);
                 // If the new position is closer to the player, add it to the path
+                Debug.Log("monster: "+monster.transform.position.x+"  "+monster.transform.position.z);
+                Debug.Log("player: "+player.transform.position.x+"  "+player.transform.position.z);
+                Debug.Log("newPosition: "+newPosition.x+"  "+newPosition.z);
                 if (closer(newPosition, distance))
                 {
+                    Debug.Log("add position");
                     path.Add(direction);
                 }
             }
