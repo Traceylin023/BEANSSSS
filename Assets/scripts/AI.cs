@@ -36,7 +36,7 @@ public class AI : MonoBehaviour
         path = updatePath();
 
         Debug.Log("path size: "+path.Count);
-        Debug.Log("is it there: "+monster.transform.position == player.transform.position);
+        Debug.Log("is it there: "+(monster.transform.position == player.transform.position));
         // If there are steps in the path, move the monster to the next step
         if (path.Count > 0)
         {
@@ -52,17 +52,17 @@ public class AI : MonoBehaviour
     {
         List<Vector2> path = new List<Vector2>();
 
-        float adjust = 0.1f;
+        float adjust = 0.5f;
         Vector2[] directions = new Vector2[]
         {
-            new Vector2(0f, 1f),  // Up
-            new Vector2(1f, 1f),  // Up-Right
-            new Vector2(1f, 0f),  // Right
-            new Vector2(1f, -1f), // Down-Right
-            new Vector2(0f, -1f), // Down
-            new Vector2(-1f, -1f),// Down-Left
-            new Vector2(-1f, 0f), // Left
-            new Vector2(-1f, 1f)  // Up-Left
+            new Vector2(0f, adjust),  // Up
+            new Vector2(adjust, adjust),  // Up-Right
+            new Vector2(adjust, 0f),  // Rightadjust
+            new Vector2(adjust, -adjust), // Down-Right
+            new Vector2(0f, -adjust), // Down
+            new Vector2(-adjust, -adjust),// Down-Left
+            new Vector2(-adjust, 0f), // Left
+            new Vector2(-adjust, adjust)  // Up-Left
         };
 
         foreach (Vector2 direction in directions)
@@ -70,9 +70,10 @@ public class AI : MonoBehaviour
             Vector3 newPosition = new Vector3(monster.transform.position.x + direction.x, monster.transform.position.y, monster.transform.position.z + direction.y);
 
             // Check if the new position is valid (i.e., not a wall and not outside the grid boundaries)
+            Debug.Log("position: "+direction.x+" "+direction.y);
             if (IsValidPosition(newPosition))
             {
-                Debug.Log("found position");
+                Debug.Log("valid");
                 // If the new position is closer to the player, add it to the path
                 Debug.Log("monster: "+monster.transform.position.x+"  "+monster.transform.position.z);
                 Debug.Log("player: "+player.transform.position.x+"  "+player.transform.position.z);
@@ -90,9 +91,13 @@ public class AI : MonoBehaviour
 
     private bool IsValidPosition(Vector3 position)
     {
-        int x = Mathf.RoundToInt(position.x);
-        int z = Mathf.RoundToInt(position.z);
-        return monster.transform.position.x+x > -50 && monster.transform.position.x+x < 50 && monster.transform.position.z+z > -50 && monster.transform.position.z+z < 50 && grid[Mathf.RoundToInt(monster.transform.position.x)+x+50, Mathf.RoundToInt(monster.transform.position.z)+z+50] == 0;
+        int x = Mathf.RoundToInt(monster.transform.position.x+position.x);
+        int z = Mathf.RoundToInt(monster.transform.position.z+position.z);
+        if(x > -50 && x < 50 && z > -50 && z < 50){
+            Debug.Log(x+"  "+z);
+            return grid[x+50, z+50] == 0;
+        } 
+        return false;
     }
 
     private bool closer(Vector3 position)
