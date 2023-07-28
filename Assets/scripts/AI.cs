@@ -7,8 +7,9 @@ public class AI : MonoBehaviour
 
     public GameObject player;
     public GameObject monster;
+    public GameObject plane;
 
-    public int[,] grid = new int[20,20];
+    public int[,] grid = new int[100,100];
     public List<Vector2> path = new List<Vector2>();
 
     // Start is called before the first frame update
@@ -30,6 +31,8 @@ public class AI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        Debug.Log("VERTICES: "+plane.GetComponent<MeshFilter>().sharedMesh.vertices);
         // Get the updated path
         path = updatePath();
 
@@ -72,12 +75,11 @@ public class AI : MonoBehaviour
             if (IsValidPosition(newPosition))
             {
                 Debug.Log("found position");
-                float distance = Vector3.Distance(newPosition, player.transform.position);
                 // If the new position is closer to the player, add it to the path
                 Debug.Log("monster: "+monster.transform.position.x+"  "+monster.transform.position.z);
                 Debug.Log("player: "+player.transform.position.x+"  "+player.transform.position.z);
                 Debug.Log("newPosition: "+newPosition.x+"  "+newPosition.z);
-                if (closer(newPosition, distance))
+                if (closer(newPosition))
                 {
                     Debug.Log("add position");
                     path.Add(direction);
@@ -92,13 +94,11 @@ public class AI : MonoBehaviour
     {
         int x = Mathf.RoundToInt(position.x);
         int z = Mathf.RoundToInt(position.z);
-        if (x < 0 || x >= grid.GetLength(0) || z < 0 || z >= grid.GetLength(1))
-            return false;
-        return grid[x, z] == 0;
+        return monster.transform.position.x+x > -50 && monster.transform.position.x+x < 50 && monster.transform.position.z+z > -50 && monster.transform.position.z+z < 50 && grid[Mathf.RoundToInt(monster.transform.position.x)+x+50, Mathf.RoundToInt(monster.transform.position.z)+z+50] == 0;
     }
 
-    private bool closer(Vector3 position, float distance)
+    private bool closer(Vector3 position)
     {
-        return Vector3.Distance(position, player.transform.position) < distance;
+        return Vector3.Distance(position, player.transform.position) < Vector3.Distance(monster.transform.position, player.transform.position);
     }
 }
