@@ -9,6 +9,6 @@ public class ConsumableClass : ItemClass
 
     public override ItemClass GetItem() { return this; }
     public override ToolClass GetTool() { return null; }
-    public override MIscItemClass GetMiscItem() { return null; }
+    public override MiscItemClass GetMiscItem() { return null; }
     public override ConsumableClass GetConsumable() { return this; }
 }
