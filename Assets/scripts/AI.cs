@@ -29,7 +29,7 @@ public class AI : MonoBehaviour
             }
         }
 
-        player.transform.position = new Vector3(20,1,0);
+        player.transform.position = new Vector3(-50,1,-50);
         monster.transform.position = new Vector3(0,2,0);
     }
 
@@ -41,14 +41,14 @@ public class AI : MonoBehaviour
         // Get the updated path
         path = updatePath();
 
-        Debug.Log("path size: "+path.Count);
-        Debug.Log("is it there: "+(monster.transform.position == player.transform.position));
+        //Debug.Log("path size: "+path.Count);
+        //Debug.Log("is it there: "+(monster.transform.position == player.transform.position));
         // If there are steps in the path, move the monster to the next step
-        if (path.Count > 0)
+        if (path.Count > 0 && Vector3.Distance(monster.transform.position, player.transform.position)>0.1)
         {
             Vector2 nextStep = path[0];
-            Debug.Log("next step x: "+nextStep.x);
-            Debug.Log("next step y: "+nextStep.y);
+            //Debug.Log("next step x: "+nextStep.x);
+            //Debug.Log("next step y: "+nextStep.y);
             monster.transform.Translate(nextStep.x*dt, 0, nextStep.y*dt);
             path.RemoveAt(0);
         }
@@ -76,22 +76,22 @@ public class AI : MonoBehaviour
         {
 
             // Check if the new position is valid (i.e., not a wall and not outside the grid boundaries)
-            Debug.Log("position: "+direction.x+" "+direction.y);
-            Debug.Log("monster: "+monster.transform.position.x+"  "+monster.transform.position.z);
-            Debug.Log("player: "+player.transform.position.x+"  "+player.transform.position.z);
+            //Debug.Log("position: "+direction.x+" "+direction.y);
+            //Debug.Log("monster: "+monster.transform.position.x+"  "+monster.transform.position.z);
+            //Debug.Log("player: "+player.transform.position.x+"  "+player.transform.position.z);
             if (IsValidPosition(direction))
             {
-                Debug.Log("valid");
+                //Debug.Log("valid");
                 // If the new position is closer to the player, add it to the path
                 if (closer(direction, nextDirection))
                 {
-                    Debug.Log("change nextDirection");
+                    //Debug.Log("change nextDirection");
                     nextDirection=direction;
                 }
             }
         }
 
-        Debug.Log("next direction is: "+nextDirection.x+"  "+nextDirection.y);
+        //Debug.Log("next direction is: "+nextDirection.x+"  "+nextDirection.y);
         path.Add(nextDirection);
 
         return path;

@@ -10,7 +10,7 @@ public abstract class ItemClass : ScriptableObject
 
     public abstract ItemClass GetItem();
     public abstract ToolClass GetTool();
-    public abstract MIscItemClass GetMiscItem();
+    public abstract MiscItemClass GetMiscItem();
     public abstract ConsumableClass GetConsumable();
 
 }
