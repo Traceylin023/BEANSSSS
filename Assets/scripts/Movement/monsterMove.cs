@@ -7,7 +7,7 @@ public class monsterMove : MonoBehaviour
 
     public GameObject player;
     public GameObject monster;
-    
+
     [Header ("Movement")]
     public float moveSpeed;
 
@@ -54,8 +54,6 @@ public class monsterMove : MonoBehaviour
     {
         horizontalInput = updatePath().x;
         verticalInput = updatePath().y;
-
-
     }
 
     private void MovePlayer()

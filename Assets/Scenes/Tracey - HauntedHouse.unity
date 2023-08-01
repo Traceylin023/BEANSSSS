@@ -357,8 +357,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96aefc9a0897a33448714aca957b0000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 941999376}
-  speed: 32
+  moveSpeed: 2
+  groundDrag: 0
+  playerHeight: 0
+  whatisground:
+    serializedVersion: 2
+    m_Bits: 0
+  orientation: {fileID: 941999380}
 --- !u!114 &941999383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -754,7 +759,8 @@ GameObject:
   - component: {fileID: 2146514994}
   - component: {fileID: 2146514993}
   - component: {fileID: 2146514992}
-  - component: {fileID: 2146514991}
+  - component: {fileID: 2146514996}
+  - component: {fileID: 2146514997}
   m_Layer: 0
   m_Name: monster
   m_TagString: Untagged
@@ -762,21 +768,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2146514991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2146514990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c479a4db6bc6fe44482d1c9f1167edd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 941999376}
-  monster: {fileID: 2146514990}
-  path: []
 --- !u!65 &2146514992
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -855,3 +846,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2146514996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146514990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69b1574e592ab8341a626657056b6c00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 941999376}
+  monster: {fileID: 2146514990}
+  moveSpeed: 2
+  groundDrag: 0
+  playerHeight: 0
+  whatisground:
+    serializedVersion: 2
+    m_Bits: 0
+  orientation: {fileID: 2146514995}
+--- !u!54 &2146514997
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146514990}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
