@@ -33,13 +33,13 @@ public class InventoryManager : MonoBehaviour
             {
                 slots[i].transform.GetChild(0).GetComponent<Image>().enabled = true;
                 slots[i].transform.GetChild(0).GetComponent<Image>().sprite = items[i].GetItem().itemIcon;
-                slots[i].transform.GetChild(1).GetComponent<Text>().text = items[i].GetQuantity() + "";
+                //slots[i].transform.GetChild(1).GetComponent<Text>().text = items[i].GetQuantity() + "";
             }
             catch
             {
                 slots[i].transform.GetChild(0).GetComponent<Image>().sprite = null;
                 slots[i].transform.GetChild(0).GetComponent<Image>().enabled = false;
-                slots[i].transform.GetChild(1).GetComponent<Text>().text = "";
+                //slots[i].transform.GetChild(1).GetComponent<Text>().text = "";
             }
         }
     }
@@ -50,7 +50,7 @@ public class InventoryManager : MonoBehaviour
 
 
         SlotClass slot = Contains(item);
-        if (slot != null )
+        if (slot != null)
             slot.AddQuantity(1);
         else
         {
@@ -72,7 +72,7 @@ public class InventoryManager : MonoBehaviour
             else
             {
                 SlotClass slotToRemove = new SlotClass();
-
+        
                 foreach (SlotClass slot in items)
                 {
                     if (slot.GetItem() == item)
@@ -89,7 +89,7 @@ public class InventoryManager : MonoBehaviour
         {
             return false;
         }
-
+        
         RefreshUI();
         return true;
     }
@@ -99,7 +99,10 @@ public class InventoryManager : MonoBehaviour
         foreach (SlotClass slot in items)
         {
             if(slot.GetItem() == item)
-            return slot;
+            {
+                return slot;
+            }
+                
         }
 
         return null;

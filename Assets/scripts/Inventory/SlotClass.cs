@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+[System.Serializable]
 public class SlotClass 
 {
     [SerializeField] private ItemClass item; 
