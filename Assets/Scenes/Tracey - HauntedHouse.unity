@@ -763,7 +763,7 @@ GameObject:
   - component: {fileID: 2146514997}
   m_Layer: 0
   m_Name: monster
-  m_TagString: Untagged
+  m_TagString: monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -860,7 +860,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 941999376}
   monster: {fileID: 2146514990}
-  moveSpeed: 2
+  path: []
+  moveSpeed: 1.5
   groundDrag: 0
   playerHeight: 0
   whatisground:
