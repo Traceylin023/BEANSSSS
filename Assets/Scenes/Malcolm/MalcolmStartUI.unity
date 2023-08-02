@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17429009, g: 0.14569867, b: 0.10612587, a: 1}
+  m_IndirectSpecularColor: {r: 0.40049943, g: 0.36625612, b: 0.33512703, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -584,7 +584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d99efb5f9986c841bcc6540d0d6eef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newGameLevel: Malcolm - HauntedHouse1
+  newGameLevel: Ty - HauntedHouse 6 - A
 --- !u!1 &1435690806
 GameObject:
   m_ObjectHideFlags: 0
