@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Malcolm/MalcolmEndUI.unity
     guid: 270c98878f76adc4e84255ff109aa86d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Malcolm/Malcolm - HauntedHouse1.unity
     guid: ef6690f3b8177294c8d472c0c408e2fc
+  - enabled: 1
+    path: Assets/Scenes/Ty - HauntedHouse 6 - A.unity
+    guid: f7fcc81377d8bea4696667973f57aa24
   m_configObjects: {}

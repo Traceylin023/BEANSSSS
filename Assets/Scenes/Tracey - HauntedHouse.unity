@@ -759,11 +759,11 @@ GameObject:
   - component: {fileID: 2146514994}
   - component: {fileID: 2146514993}
   - component: {fileID: 2146514992}
-  - component: {fileID: 2146514996}
   - component: {fileID: 2146514997}
+  - component: {fileID: 2146514998}
   m_Layer: 0
   m_Name: monster
-  m_TagString: Untagged
+  m_TagString: monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -846,27 +846,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2146514996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2146514990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69b1574e592ab8341a626657056b6c00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 941999376}
-  monster: {fileID: 2146514990}
-  moveSpeed: 2
-  groundDrag: 0
-  playerHeight: 0
-  whatisground:
-    serializedVersion: 2
-    m_Bits: 0
-  orientation: {fileID: 2146514995}
 --- !u!54 &2146514997
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -883,3 +862,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2146514998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146514990}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc3eb90f17156548a81b39d6c307a3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 941999376}
+  monster: {fileID: 2146514990}
+  path: []
+  moveSpeed: 1.5
+  groundDrag: 0
+  playerHeight: 0
+  whatisground:
+    serializedVersion: 2
+    m_Bits: 0
+  orientation: {fileID: 2146514995}
