@@ -33,6 +33,8 @@ public class monsterMove : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+
+        monster.transform.position = new Vector3(157.0f, 2.0f, 128.0f);
     }
 
     private void Update()
@@ -50,6 +52,8 @@ public class monsterMove : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
+
+        Debug.Log("monster position: "+monster.transform.position.x+"    "+monster.transform.position.z);
     }
 
     private void MyInput()
@@ -63,8 +67,6 @@ public class monsterMove : MonoBehaviour
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
-
-        monster.transform.position = new Vector3(Mathf.Clamp(orientation.position.x, -50, 50), 1, Mathf.Clamp(orientation.position.z, -50, 50));
     }
 
     private Vector2 updatePath()
