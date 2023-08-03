@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -568,7 +568,7 @@ MonoBehaviour:
   player: {fileID: 1935965342}
   keypadOB: {fileID: 134897993}
   textOB: {fileID: 2100805998}
-  answer: 4729
+  answer: 289
   button: {fileID: 1976377507}
   correct: {fileID: 689829483}
   wrong: {fileID: 103285842}
@@ -5347,11 +5347,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b911fad26b2e7a0449b5eb6eee7652b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Xaxis: 1600
-  Yaxis: 1600
-  orientation: {fileID: 0}
-  xrotation: 0
-  yrotation: 0
 --- !u!114 &1935965352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5364,8 +5359,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002f9194b953a254da777106f922d7d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1935965342}
-  camera: {fileID: 963194225}
 --- !u!1 &1976377506
 GameObject:
   m_ObjectHideFlags: 0
