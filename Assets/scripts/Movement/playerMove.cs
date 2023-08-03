@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class playerMove : MonoBehaviour
 {
+
+    public GameObject player;
     [Header ("Movement")]
     public float moveSpeed;
 
@@ -27,6 +29,8 @@ public class playerMove : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+
+        player.transform.position = new Vector3(160.0f, 1.121748f, 120.0f);
     }
 
     private void Update()
@@ -53,7 +57,5 @@ public class playerMove : MonoBehaviour
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
-
-        orientation.position = new Vector3(Mathf.Clamp(orientation.position.x, -50, 50), 1, Mathf.Clamp(orientation.position.z, -50, 50));
     }
 }
