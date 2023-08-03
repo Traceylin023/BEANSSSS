@@ -4009,7 +4009,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 945189186}
         m_TargetAssemblyTypeName: ReadNotes, Assembly-CSharp
         m_MethodName: ExitButton
         m_Mode: 1
@@ -7126,7 +7126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 941999376}
-  noteUI: {fileID: 1572085480}
+  noteUI: {fileID: 144738470}
   pickUpSound: {fileID: 777227687}
   inReach: 0
 --- !u!65 &777227689
@@ -8796,7 +8796,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945189184}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 165.47, y: 1.128, z: 129.26}
+  m_LocalPosition: {x: 171.14, y: 0.09, z: 163.98}
   m_LocalScale: {x: 0.30381912, y: -0.016261, z: 0.28727224}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11373,7 +11373,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1370850629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14914,7 +14914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 941999376}
-  noteUI: {fileID: 0}
+  noteUI: {fileID: 1370850628}
   pickUpSound: {fileID: 1710129622}
   inReach: 0
 --- !u!1001 &1717033376
@@ -16449,7 +16449,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 777227688}
         m_TargetAssemblyTypeName: ReadNotes, Assembly-CSharp
         m_MethodName: ExitButton
         m_Mode: 1
@@ -17960,7 +17960,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1710129623}
         m_TargetAssemblyTypeName: ReadNotes, Assembly-CSharp
         m_MethodName: ExitButton
         m_Mode: 1
