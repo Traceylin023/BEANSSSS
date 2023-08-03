@@ -34,11 +34,7 @@ public class playerMove : MonoBehaviour
        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 2f, whatisground);
      
        MyInput();
-       
-       if (grounded)
-           rb.drag = groundDrag;
-       else 
-           rb.drag = 0;
+        rb.drag = groundDrag;
     }
 
     private void FixedUpdate()
