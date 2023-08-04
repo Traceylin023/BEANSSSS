@@ -43,16 +43,10 @@ public class ReadNotes : MonoBehaviour
         {
             noteUI.SetActive(true);
             pickUpSound.Play();
-            Cursor.visible = true;
-
         }
-    }
-
-    public void ExitButton()
-    {
-
-        noteUI.SetActive(false);
-        Cursor.visible = false;
+        if(Input.GetKeyDown(KeyCode.Q)){
+            noteUI.SetActive(false);
+        }
     }
 }
 
