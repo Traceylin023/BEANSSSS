@@ -35,6 +35,7 @@ public class monsterMove : MonoBehaviour
         rb.freezeRotation = true;
 
         monster.transform.position = new Vector3(157.0f, 2.0f, 138.0f);
+        //monster.transform.LookAt(player.transform.position);
     }
 
     private void Update()
@@ -47,11 +48,13 @@ public class monsterMove : MonoBehaviour
            rb.drag = groundDrag;
        else 
            rb.drag = 0;
+
     }
 
     private void FixedUpdate()
     {
         MovePlayer();
+        //monster.transform.LookAt(player.transform.position);
 
         Debug.Log("monster position: "+monster.transform.position.x+"    "+monster.transform.position.z);
     }
@@ -111,7 +114,7 @@ public class monsterMove : MonoBehaviour
                 }
             }
 
-            //Debug.Log("can move: "+canMove);
+            Debug.Log("can move: "+canMove);
 
             // If canMove is true, the GameObject can move to the desired position
             if (canMove)

@@ -5293,7 +5293,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -11906,7 +11906,7 @@ Transform:
   m_GameObject: {fileID: 1565217119}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 157, y: 2, z: 138}
-  m_LocalScale: {x: 0.01, y: 2.5, z: 2.5}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -11932,7 +11932,7 @@ MonoBehaviour:
   playerHeight: 0
   whatisground:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   orientation: {fileID: 1565217123}
 --- !u!54 &1565217125
 Rigidbody:
@@ -11948,7 +11948,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 36
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &1565217126
 BoxCollider:
@@ -11961,7 +11961,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 25, y: 1, z: 0.25}
+  m_Size: {x: 1, y: 1, z: 0.25}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1569730515
 PrefabInstance:
