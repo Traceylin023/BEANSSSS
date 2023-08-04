@@ -38,6 +38,7 @@ public class OpenKeyPad : MonoBehaviour
         if(Input.GetButtonDown("Interact") && inReach)
         {
             keypadOB.SetActive(true);
+            Cursor.visible = false;
         }
         
 
