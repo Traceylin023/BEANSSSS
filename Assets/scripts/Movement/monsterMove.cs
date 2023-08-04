@@ -34,7 +34,7 @@ public class monsterMove : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
-        monster.transform.position = new Vector3(157.0f, 2.0f, 128.0f);
+        monster.transform.position = new Vector3(157.0f, 2.0f, 138.0f);
     }
 
     private void Update()
@@ -111,7 +111,7 @@ public class monsterMove : MonoBehaviour
                 }
             }
 
-            Debug.Log("can move: "+canMove);
+            //Debug.Log("can move: "+canMove);
 
             // If canMove is true, the GameObject can move to the desired position
             if (canMove)
