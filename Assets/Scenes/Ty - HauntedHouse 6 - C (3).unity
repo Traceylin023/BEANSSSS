@@ -8653,7 +8653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96aefc9a0897a33448714aca957b0000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 941999376}
   moveSpeed: 10
   groundDrag: 5
   playerHeight: 8
