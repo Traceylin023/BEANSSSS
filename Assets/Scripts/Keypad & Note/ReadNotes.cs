@@ -53,6 +53,7 @@ public class ReadNotes : MonoBehaviour
     {
 
         noteUI.SetActive(false);
+        Cursor.visible = false;
     }
 }
 
