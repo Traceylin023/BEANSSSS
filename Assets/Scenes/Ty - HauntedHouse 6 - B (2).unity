@@ -7620,7 +7620,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941999376}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 120.1, y: 52.9, z: 102.7}
+  m_LocalPosition: {x: 160, y: 1.121748, z: 120}
   m_LocalScale: {x: 0.65, y: 1, z: 0.65}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -7657,6 +7657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96aefc9a0897a33448714aca957b0000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 941999376}
   moveSpeed: 10
   groundDrag: 5
   playerHeight: 8
@@ -11836,29 +11837,16 @@ GameObject:
   - component: {fileID: 1565217123}
   - component: {fileID: 1565217122}
   - component: {fileID: 1565217121}
-  - component: {fileID: 1565217120}
   - component: {fileID: 1565217124}
   - component: {fileID: 1565217125}
+  - component: {fileID: 1565217126}
   m_Layer: 0
   m_Name: monster
-  m_TagString: Untagged
+  m_TagString: monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &1565217120
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1565217119}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1565217121
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11917,8 +11905,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1565217119}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 157, y: 2, z: 128}
-  m_LocalScale: {x: 0.01, y: 1.5, z: 1.5}
+  m_LocalPosition: {x: 157, y: 2, z: 138}
+  m_LocalScale: {x: 0.01, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -11939,7 +11927,7 @@ MonoBehaviour:
   player: {fileID: 941999376}
   monster: {fileID: 1565217119}
   path: []
-  moveSpeed: 1.5
+  moveSpeed: 3
   groundDrag: 0
   playerHeight: 0
   whatisground:
@@ -11960,8 +11948,21 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 36
   m_CollisionDetection: 0
+--- !u!65 &1565217126
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565217119}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 25, y: 1, z: 0.25}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1569730515
 PrefabInstance:
   m_ObjectHideFlags: 0
