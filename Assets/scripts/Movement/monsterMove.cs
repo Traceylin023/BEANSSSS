@@ -48,6 +48,7 @@ public class monsterMove : MonoBehaviour
            rb.drag = groundDrag;
        else 
            rb.drag = 0;
+
     }
 
     private void FixedUpdate()

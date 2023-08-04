@@ -11932,7 +11932,7 @@ MonoBehaviour:
   playerHeight: 0
   whatisground:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   orientation: {fileID: 1565217123}
 --- !u!54 &1565217125
 Rigidbody:
@@ -11948,7 +11948,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 36
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &1565217126
 BoxCollider:
