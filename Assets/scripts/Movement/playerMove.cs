@@ -30,7 +30,7 @@ public class playerMove : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
-        player.transform.position = new Vector3(160.0f, 1.121748f, 120.0f);
+        player.transform.position = new Vector3(155.77f, 12.91f, 124.48f);
     }
 
     private void Update()

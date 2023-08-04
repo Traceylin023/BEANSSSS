@@ -57,6 +57,8 @@ public class Nextbot : MonoBehaviour
         if(distance < 0.2f){
             Destroy(player);
             Destroy(monster);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             gameUI.NewGameButton();
         }
     }

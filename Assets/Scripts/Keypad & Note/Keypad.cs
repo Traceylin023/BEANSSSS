@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class Keypad : MonoBehaviour
 {
     public GameObject player;
+    public GameObject monster;
+    public ButtonStartUI gameUI;
     public GameObject keypadOB;
     //public GameObject inv;
 
@@ -74,8 +76,11 @@ public class Keypad : MonoBehaviour
     {
         if (textOB.text == "Right")
         {
-            //ANI.SetBool("animate", true);
-            Debug.Log("its open");
+            Destroy(player);
+            Destroy(monster);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            gameUI.NewGameButton();
         }
 
 

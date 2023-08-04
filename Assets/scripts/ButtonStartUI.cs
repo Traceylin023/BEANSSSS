@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ButtonStartUI : MonoBehaviour
 {
-    [SerializeField] private string newGameLevel = "Malcolm - HauntedHouse1";
+    [SerializeField] private string newGameLevel = "Ty - HauntedHouse 6 - A (1)";
 
     public void NewGameButton ()
     {
