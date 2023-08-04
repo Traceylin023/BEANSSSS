@@ -66,6 +66,7 @@ public class Keypad : MonoBehaviour
     public void Exit()
     {
         keypadOB.SetActive(false);
+        Cursor.visible = false;
         //inv.SetActive(true);
     }
 
