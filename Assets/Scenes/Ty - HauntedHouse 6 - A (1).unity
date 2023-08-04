@@ -455,7 +455,7 @@ GameObject:
   - component: {fileID: 23424629}
   - component: {fileID: 23424628}
   - component: {fileID: 23424627}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18722,7 +18722,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2105808525}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: House 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
